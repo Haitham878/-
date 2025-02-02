@@ -1,0 +1,71 @@
+
+
+<html >
+<head>
+    <title>اعرست - اختيار الجنس</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+           /* background-color: #f0f0f0;*/
+           height:100vh;
+            background-image: url('logo.png');
+            background-size: 100%;
+            
+            background-position: center;
+            background-repeat:no-repeat;
+        }
+        header {
+            background-color: #771508; /* لون أخضر */
+            color: white; /* لون النص أبيض */
+            padding: 15px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+        }
+        main {
+          
+           
+            align-items: center;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #007BFF; /* لون أزرق */
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3; /* ظل أغمق عند التمرير */
+        }
+        div{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+               width: 100%;
+
+        }
+    </style>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+<body>
+<header>
+    <button onclick="goBack()" style=" border: none; border-radius: 2px; position: absolute;left: 20px;top: 20px;">❌</button>
+    <h1>اختيار الجنس</h1>
+</header>
+<main>
+    <div>
+    <button class="button" onclick="location.href='men.html'">الرجال</button>
+    <button class="button" onclick="location.href='women.html'">النساء</button>
+</main>
+
+</body>
+</html>

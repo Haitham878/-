@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صور ملابس العريس</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .image-container {
+            position: relative;
+            margin: 10px;
+            width: 30%; /* عرض الصورة */
+        }
+        .image-container img {
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none; /* بدايةً مخفية */
+        }
+        .image-container:hover .info {
+            display: block; /* تظهر عند التمرير */
+        }
+        .reserve-button {
+            background-color: #28a745; /* لون الزر */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+<body>
+    <button onclick="goBack()" style=" border: none; border-radius: 2px; position: absolute;left: 20px;top: 20px;">❌</button>
+<h1>الفخامة</h1>
+
+<div class="image-gallery">
+
+    <div class="image-container">
+        <img src="I1.jpg" alt="صورة 1">
+        <div class="info">
+            <p>متاح</p>
+            <p>سعر: 100$</p>
+            <button class="reserve-button" onclick="window.location.href='login.html'">حجز</button>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="I2.jpg" alt="صورة 2">
+        <div class="info">
+            <p>محجوز</p>
+            <p>سعر: 150$</p>
+            <button class="reserve-button" onclick="window.location.href='login.html'">حجز</button>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="I3.jpg" alt="صورة 3">
+        <div class="info">
+            <p>متاح</p>
+            <p>سعر: 120$</p>
+            <button class="reserve-button" onclick="window.location.href='login.html'">حجز</button>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="I6.PNG" alt="صورة 4">
+        <div class="info">
+            <p>متاح</p>
+            <p>سعر: 130$</p>
+            <button class="reserve-button" onclick="window.location.href='login.html'">حجز</button>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="I5.jpg" alt="صورة 5">
+        <div class="info">
+            <p>محجوز</p>
+            <p>سعر: 140$</p>
+            <button class="reserve-button" onclick="window.location.href='login.html'">حجز</button>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="I6.jpg" alt="صورة 6">
+        <div class="info">
+            <p>متاح</p>
+            <p>سعر: 110$</p>
+            <button class="reserve-button" onclick="window.location.href='login.html'">حجز</button>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="I7.jpg" alt="صورة 7">
+        <div class="info">
+            <p>محجوز</p>
+            <p>سعر: 160$</p>
+            <button class="reserve-button" onclick="window.location.href='login.html'">حجز</button>
+        </div>
+    </div>
+
+ 
+    <div class="image-container">
+        <img src="I9.jpg" alt="صورة 2">
+        <div class="info">
+            <p>محجوز</p>
+            <p>سعر: 155$</p>
+            <button class="reserve-button" onclick="window.location.href='login.html'">حجز</button>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="I10.jpg" alt="صورة 3">
+        <div class="info">
+            <p>متاح</p>
+            <p>سعر: 135$</p>
+            <button class="reserve-button" onclick="window.location.href='login.html'">حجز</button>
+        </div>
+    </div>
+
+
+    <div class="image-container">
+        <img src="I12.jpg" alt="صورة 5">
+        <div class="info">
+            <p>متاح</p>
+            <p>سعر: 115$</p>
+            <button class="reserve-button" onclick="window.location.href='login.html'">حجز</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

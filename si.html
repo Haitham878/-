@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنشدين</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .image-container {
+            position: relative;
+            margin: 10px;
+            width: 40%; /* عرض الصورة */
+            cursor: pointer;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+        }
+       
+    </style>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <button onclick="goBack()" style=" border: none; border-radius: 2px; position: absolute;left: 20px;top: 20px;">❌</button>
+       <h1>المنشدين</h1>
+    </header>
+
+
+<div class="image-gallery">
+    <div class="image-container" onclick="playAudio('h1.mp3')">
+        <img src="h1.jpg" alt="منشد 1">
+    </div>
+    <div class="image-container" onclick="playAudio('h2.mp3')">
+        <img src="h2.jpg" alt="منشد 2">
+    </div>
+    <div class="image-container" onclick="playAudio('h3.mp3')">
+        <img src="h3.jpg" alt="منشد 3">
+    </div>
+    <div class="image-container" onclick="playAudio('h4.m4a')">
+        <img src="h4.jpg" alt="منشد 4">
+    </div>
+    <div class="image-container" onclick="playAudio('h5.mp3')">
+        <img src="h5.jpg" alt="منشد 5">
+    </div>
+    <div class="image-container" onclick="playAudio('h6.m4a')">
+        <img src="h6.jpg" alt="منشد 5">
+    </div>
+</div>
+
+<audio id="audioPlayer" controls style="display: none;"></audio>
+
+<script>
+    function playAudio(audioFile) {
+        var audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.src = audioFile;
+        audioPlayer.play();
+    }
+</script>
+
+</body>
+</html>

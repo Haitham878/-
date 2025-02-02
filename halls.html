@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قاعات الأفراح</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .hall-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .hall {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 10px;
+            width: 30%;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .hall img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .hall:hover {
+            transform: scale(1.05);
+        }
+
+        .hall-details {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            z-index: 2;
+        }
+
+        .hall:hover .hall-details {
+            display: block;
+        }
+
+        .availability {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .available {
+            color: green;
+        }
+
+        .not-available {
+            color: red;
+        }
+
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .radio-group {
+            margin: 20px 0;
+        }
+    </style><script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+</head>
+<body>
+    <header>
+        <button onclick="goBack()" style=" border: none; border-radius: 2px; position: absolute;left: 20px;top: 20px;">❌</button>
+<h1>قاعات الأفراح</h1>
+</header>
+<div class="hall-container">
+    <div class="hall" onclick="openModal('hall1')">
+        <img src="a1.jpg" alt="صالة الثريا">
+        <div class="hall-details">
+            <h2>صالة الثريا</h2>
+            <p class="availability available">الحالة: متاحة ✅</p>
+        </div>
+    </div>
+    
+    <div class="hall" onclick="openModal('hall2')">
+        <img src="b1.jpg" alt="صالة اوركيد الصغرى">
+        <div class="hall-details">
+            <h2>صالة اوركيد الصغرى</h2>
+            <p class="availability not-available">الحالة: محجوز ❌</p>
+        </div>
+    </div>
+
+    <div class="hall" onclick="openModal('hall3')">
+        <img src="c1.jpg" alt="صالة قصر السلطان">
+        <div class="hall-details">
+            <h2>صالة قصر السلطان</h2>
+            <p class="availability available">الحالة: متاحة ✅</p>
+        </div>
+    </div>
+
+    <div class="hall" onclick="openModal('hall4')">
+        <img src="d1.jpg" alt="صالة قصر اللوفر">
+        <div class="hall-details">
+            <h2>صالة قصر اللوفر</h2>
+            <p class="availability not-available">الحالة: محجوز ❌</p>
+        </div>
+    </div>
+
+    <div class="hall" onclick="openModal('hall5')">
+        <img src="e1.jpg" alt="صالة قصر قرطبه">
+        <div class="hall-details">
+            <h2>صالة قصر قرطبه</h2>
+            <p class="availability available">الحالة: متاحة ✅</p>
+        </div>
+    </div>
+
+    <div class="hall" onclick="openModal('hall6')">
+        <img src="f1.jpg" alt="صالة ماجستي">
+        <div class="hall-details">
+            <h2>صالة ماجستي</h2>
+            <p class="availability available">الحالة: متاحة ✅</p>
+        </div>
+    </div>
+
+    <div class="hall" onclick="openModal('hall7')">
+        <img src="g1.jpg" alt="صالة نوران">
+        <div class="hall-details">
+            <h2>صالة نوران</h2>
+            <p class="availability not-available">الحالة: محجوز ❌</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Hall Details -->
+<div id="hallModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <div id="modalImages"></div>
+        <p class="availability" id="modalAvailability"></p>
+        <p id="modalDetails"></p>
+        <button class="button" onclick="showBookingOptions()">احجز الصالة</button>
+        <div id="bookingOptions" style="display: none;">
+            <h3>اختر نوع الحجز:</h3>
+            <div class="radio-group">
+                <label><input type="radio" name="bookingType" value="حفل"> لحفل</label><br>
+                <label><input type="radio" name="bookingType" value="عرس"> لعرس</label><br>
+                <label><input type="radio" name="bookingType" value="موت"> لموت</label><br>
+            </div>
+            <button class="button" onclick="redirectToLogin()">تسجيل الدخول</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(hall) {
+        let title, availability, details, images;
+
+       
+
+        switch (hall) {
+            case 'hall1':
+                title = 'صالة الثريا';
+                availability = 'الحالة: متاحة ✅';
+                details = 'موعد الحجز: 2025-12-01<br>رقم صاحب القاعة: 123456789<br>السعر: 5000 ريال<br>التخفيض: 10%';
+                images = '<img src="a1.jpg" alt="صالة الثريا" style="width: 100%;"><img src="a2.jpg" alt="صالة الثريا" style="width: 100%;"><img src="a3.jpg" alt="صالة الثريا" style="width: 100%;">';
+                break;
+            case 'hall2':
+                title = 'صالة اوركيد الصغرى';
+                availability = 'الحالة: محجوز ❌';
+                details = 'موعد الحجز: 2025-11-15<br>رقم صاحب القاعة: 987654321<br>السعر: 6000 ريال<br>التخفيض: 5%';
+                images = '<img src="b1.jpg" alt="صالة اوركيد الصغرى" style="width: 100%;"><img src="b2.jpg" alt="صالة اوركيد الصغرى" style="width: 100%;"><img src="b3.jpg" alt="صالة اوركيد الصغرى" style="width: 100%;">';
+                break;
+            case 'hall3':
+                title = 'صالة قصر السلطان';
+                availability = 'الحالة: متاحة ✅';
+                details = 'موعد الحجز: 2025-12-15<br>رقم صاحب القاعة: 456789123<br>السعر: 7000 ريال<br>التخفيض: 15%';
+                images = '<img src="c1.jpg" alt="صالة قصر السلطان" style="width: 100%;"><img src="c2.jpg" alt="صالة قصر السلطان" style="width: 100%;"><img src="c3.jpg" alt="صالة قصر السلطان" style="width: 100%;">';
+                break;
+            case 'hall4':
+                title = 'صالة قصر اللوفر';
+                availability = 'الحالة: محجوز ❌';
+                details = 'موعد الحجز: 2025-11-30<br>رقم صاحب القاعة: 321654987<br>السعر: 8000 ريال<br>التخفيض: 0%';
+                images = '<img src="d1.jpg" alt="صالة قصر اللوفر" style="width: 100%;"><img src="d2.jpg" alt="صالة قصر اللوفر" style="width: 100%;"><img src="d3.jpg" alt="صالة قصر اللوفر" style="width: 100%;">';
+                break;
+            case 'hall5':
+                title = 'صالة قصر قرطبه';
+                availability = 'الحالة: متاحة ✅';
+                details = 'موعد الحجز: 2025-12-20<br>رقم صاحب القاعة: 159753486<br>السعر: 6500 ريال<br>التخفيض: 20%';
+                images = '<img src="e1.jpg" alt="صالة قصر قرطبه" style="width: 100%;"><img src="e2.jpg" alt="صالة قصر قرطبه" style="width: 100%;"><img src="e3.jpg" alt="صالة قصر قرطبه" style="width: 100%;">';
+                break;
+            case 'hall6':
+                title = 'صالة ماجستي';
+                availability = 'الحالة: متاحة ✅';
+                details = 'موعد الحجز: 2025-11-25<br>رقم صاحب القاعة: 753951486<br>السعر: 7200 ريال<br>التخفيض: 10%';
+                images = '<img src="f1.jpg" alt="صالة ماجستي" style="width: 100%;"><img src="f2.jpg" alt="صالة ماجستي" style="width: 100%;"><img src="f3.jpg" alt="صالة ماجستي" style="width: 100%;">';
+                break;
+            case 'hall7':
+                title = 'صالة نوران';
+                availability = 'الحالة: محجوز ❌';
+                details = 'موعد الحجز: 2025-12-10<br>رقم صاحب القاعة: 852963741<br>السعر: 9000 ريال<br>التخفيض: 5%';
+                images = '<img src="g1.jpg" alt="صالة نوران" style="width: 100%;"><img src="g2.jpg" alt="صالة نوران" style="width: 100%;"><img src="g3.jpg" alt="صالة نوران" style="width: 100%;">';
+                break;
+        }
+
+
+
+        document.getElementById("modalTitle").innerHTML = title;
+        document.getElementById("modalAvailability").innerHTML = availability;
+        document.getElementById("modalDetails").innerHTML = details;
+        document.getElementById("modalImages").innerHTML = images;
+
+        document.getElementById("hallModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("hallModal").style.display = "none";
+        document.getElementById("bookingOptions").style.display = "none"; // Hide booking options
+    }
+
+    function showBookingOptions() {
+        document.getElementById("bookingOptions").style.display = "block"; // Show booking options
+    }
+
+    function redirectToLogin() {
+        // Redirect to login page (replace with your login page URL)
+        window.location.href = "login.html"; // يمكنك تغيير هذا إلى رابط صفحة تسجيل الدخول الخاصة بك
+    }
+</script>
+
+</body>
+</html>

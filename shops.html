@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محلات فساتين الفرح</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .shop-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .shop {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 10px;
+            width: 30%;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .shop img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .shop:hover {
+            transform: scale(1.05);
+        }
+
+        .shop-details {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            z-index: 2;
+        }
+
+        .shop:hover .shop-details {
+            display: block;
+        }
+
+        .availability {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .available {
+            color: green;
+        }
+
+        .not-available {
+            color: red;
+        }
+
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .reviews {
+            margin: 20px 0;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <button onclick="goBack()" style=" border: none; border-radius: 2px; position: absolute;left: 20px;top: 20px;">❌</button>
+    <h1>محلات فساتين الفرح</h1>
+</header>
+
+<div class="shop-container">
+    <div class="shop" onclick="openModal('shop1')">
+        <img src="aa1.jpg" alt="محل برايد إڤينيو">
+        <div class="shop-details">
+            <h2>محل برايد إڤينيو</h2>
+            <p class="availability available">الحالة: متاحة ✅</p>
+        </div>
+    </div>
+    
+    <div class="shop" onclick="openModal('shop2')">
+        <img src="bb1.jpg" alt="محل مشاهير">
+        <div class="shop-details">
+            <h2>محل مشاهير</h2>
+            <p class="availability not-available">الحالة: محجوز ❌</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Shop Details -->
+<div id="shopModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <div id="modalImages"></div>
+        <p class="availability" id="modalAvailability"></p>
+        <p id="modalDetails"></p>
+        <div class="reviews" id="modalReviews"></div>
+        <button class="button" onclick="showBookingOptions()">احجز المحل</button>
+    </div>
+</div>
+
+<script>
+    function openModal(shop) {
+        let title, availability, details, images, reviews;
+
+        switch (shop) {
+            case 'shop1':
+                title = 'محل برايد إڤينيو';
+                availability = 'الحالة: متاحة ✅';
+                details = 'الموقع: شارع الملكة<br>موعد الحجز: 2025-2-01<br>السعر: 3000 ريال<br>التخفيض: 15%';
+                images = '<img src="aa2.jpg" alt="محل برايد إڤينيو" style="width: 50%;"><img src="aa3.jpg" alt="محل برايد إڤينيو" style="width: 50%;">';
+                reviews = '<strong>تعليقات المستخدمين:</strong><br><p>فستان جميل جداً! - محمد</p><p>خدمة ممتازة! - سارة</p>';
+                break;
+            case 'shop2':
+                title = 'محل مشاهير';
+                availability = 'الحالة: محجوز ❌';
+                details = 'الموقع: شارع الفن<br>موعد الحجز: 2025-2-15<br>السعر: 3500 ريال<br>التخفيض: 10%';
+                images = '<img src="bb3.jpg" alt="محل مشاهير" style="width: 50%;"><img src="bb2.jpg" alt="محل مشاهير" style="width: 50%;">';
+                reviews = '<strong>تعليقات المستخدمين:</strong><br><p>أفضل محل لفساتين الزفاف! - ليلى</p><p>مجموعة رائعة من الفساتين! - عادل</p>';
+                break;
+        }
+
+        document.getElementById("modalTitle").innerHTML = title;
+        document.getElementById("modalAvailability").innerHTML = availability;
+        document.getElementById("modalDetails").innerHTML = details;
+        document.getElementById("modalImages").innerHTML = images;
+        document.getElementById("modalReviews").innerHTML = reviews;
+
+        document.getElementById("shopModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("shopModal").style.display = "none";
+    }
+
+    function showBookingOptions() {
+        // Redirect to login page (replace with your login page URL)
+        window.location.href = "login.html"; // يمكنك تغيير هذا إلى رابط صفحة تسجيل الدخول الخاصة بك
+    }
+</script>
+
+</body>
+</html>

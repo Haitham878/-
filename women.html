@@ -1,0 +1,84 @@
+
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات النساء</title>
+    <style>
+        body {
+            background-color: white; /* لون الصفحة أبيض */
+            font-family: Arial, sans-serif;
+            color: white; /* لون الخط أبيض */
+        }
+        header, footer {
+            background-color: #d53585; /* لون وردي */
+            color: white; /* لون النص أبيض */
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .service-button {
+            background-color:  #a03a6d; /* لون وردي */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 25px;
+            transition: background-color 0.3s;
+            width: calc(50% - 40px); /* عرض الزر */
+            text-align: center;
+        }
+        .service-button:hover {
+            background-color: #C71585; /* ظل أغمق عند التمرير */
+        }
+        .back-button {
+            background-color: #FF5722; /* لون برتقالي */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: #E64A19; /* ظل أغمق عند التمرير */
+        }
+    </style>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+</head>
+<body>
+<header>
+    <button onclick="goBack()" style=" border: none; border-radius: 2px; position: absolute;left: 20px;top: 20px;">❌</button>
+    <h1>خدمات النساء</h1>
+</header>
+<main>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%;">
+        <button class="service-button" onclick="location.href='halls.html'">قاعات الأفراح</button>
+        <button class="service-button" onclick="location.href='singe.html'">الفنانين</button>
+        <button class="service-button" onclick="location.href='shops.html'">محلات فساتين الفرح</button>
+        <button class="service-button" onclick="location.href='water.html'"> المياه والمشروبات</button>
+        <button class="service-button" onclick="location.href='prent.html'"> تصميم وطباعة الدعوات</button>
+        <button class="service-button" onclick="location.href='pictures.html'">خدمات التصوير</button>
+        <button class="service-button" onclick="location.href='cok.html'">خدمات الطعام والشراب</button>
+        <button class="service-button" onclick="location.href='securtyw.html'">خدمات تأمين الزفاف</button>
+    </div>
+   <br>
+</main>
+<footer>
+    <p>حقوق الطبع والنشر &copy; 2025 اعرست</p>
+</footer>
+</body>
+</html>

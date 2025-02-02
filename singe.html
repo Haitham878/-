@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الزر</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: green;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-left: 30px;
+        }
+        .button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 30px 100px;
+            margin: 10px;
+            margin-right: 50px;
+            margin-left: 50px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 50px;
+        }
+        .button:hover {
+            opacity: 0.8;
+        }
+        .service-button {
+            background-color: #ffffff; 
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 3px 3px;
+            margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            text-align: center;
+            
+        }
+    </style>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <button onclick="goBack()" style=" border: none; border-radius: 2px; position: absolute;left: 20px;top: 20px;">❌</button>
+    <h1>المطربين</h1>
+</header>
+
+<div class="button-container">
+    <a href="si.html">
+        <button class="button">المنشدين</button>
+    </a>
+    <a href="sing.html">
+        <button class="button">الفنانين</button>
+    </a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اعرست</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* ملء الشاشة */
+            background-color: black; /* لون خلفية أخضر */
+            overflow: hidden; /* منع التمرير */
+        }
+        h1 {
+            font-size: 80px; /* حجم الخط */
+            color: white; /* لون النص أبيض */
+            animation: fadeIn 3s ease-in-out, moveUp 3s ease-in-out; /* تأثير التلاشي والحركة */
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes moveUp {
+            from { transform: translateY(20px); }
+            to { transform: translateY(0); }
+        }
+        .fade-out {
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    </style>
+    
+</head>
+<body>
+    
+<h1 id="title"><img src="a.png" alt="" width="100%"></h1>
+<script>
+    // إخفاء العنوان بعد 5 ثواني
+    setTimeout(function() {
+        const title = document.getElementById('title');
+        title.classList.add('fade-out'); // إضافة تأثير التلاشي
+        setTimeout(function() {
+            window.location.href = 'main.html'; // الانتقال إلى الصفحة الرئيسية
+        }, 1000); // زمن التلاشي
+    }, 5000); // زمن العرض
+</script>
+</body>
+</html>
